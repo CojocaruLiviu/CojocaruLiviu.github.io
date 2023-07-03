@@ -68,3 +68,20 @@ function ajax(method, url, data, success, error) {
   };
   xhr.send(data);
 }
+
+
+function generatePDF() {
+  // Initialize jsPDF
+  var doc = new jsPDF();
+
+  // Get HTML content
+  var html = $('#container').html();
+
+  // Convert HTML to PDF
+  doc.fromHTML(html, 15, 15, {
+    'width': 1500
+  });
+
+  // Save PDF
+  doc.save('example.pdf');
+}
